@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2025-08-08T11:53:01Z"
+  name: frontend-service
+  namespace: multi-tier-app
+  resourceVersion: "6405"
+  uid: adab2db9-b20b-404c-9369-a66937ae656a
+spec:
+  clusterIP: 10.100.244.226
+  clusterIPs:
+  - 10.100.244.226
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 31825
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: frontend
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
